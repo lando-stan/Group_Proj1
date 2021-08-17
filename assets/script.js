@@ -14,3 +14,18 @@ function getMusicAPI(){
         })
 }
 
+const checkbox = document.querySelector(".form-check-input");
+const closeBtn1 = document.querySelector(".close");
+const closeBtn2 = document.querySelector(".btn-secondary");
+
+checkbox.addEventListener("change", function() {
+    $('#advancedSearch').modal('show');
+});
+
+closeBtn1.addEventListener("click", function() {
+    $('#advancedSearch').modal('hide');
+});
+
+closeBtn2.addEventListener("click", function() {
+    $('#advancedSearch').modal('hide');
+});
