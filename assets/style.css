@@ -1,0 +1,67 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 16px;
+  font-family: "Roboto", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: skyblue;
+  color: slategrey;
+}
+
+.container {
+  border: 4px solid slategrey;
+  border-radius: 8px;
+  background-color: whitesmoke;
+  margin: 50px auto;
+}
+
+.logo {
+  position: fixed left;
+  font-family: "Comic Sans MS";
+  font-size: 240%;
+  font-weight: bold;
+  color: sandybrown;
+}
+
+.logo span {
+  font-family: "Roboto";
+  font-size: 100%;
+  font-weight: lighter;
+  color: slategrey;
+}
+
+#advanced-search {
+  float: right;
+  padding-left: 1rem;
+}
+
+.wholeLogo {
+  padding-left: 20px;
+  margin: 20px 0;
+}
+
+#flexCheckDefault {
+  margin-left: 0;
+}
+
+.form-check-label {
+  display: inline;
+}
+
+.searchDetails {
+  float: right;
+}
+
+.mediaWindow {
+  margin: 20px;
+  padding: 5px;
+}
+
+.refreshVideoBtn {
+  margin: 5px auto;
+  margin-left: 240px;
+}
