@@ -1,7 +1,14 @@
+<<<<<<< HEAD
 var searchButton = document.querySelector(".searchBtn");
 searchButton.addEventListener("click", encodeURIComponent(query));
 
 /*function getMusicAPI(){
+=======
+var searchButton = document.querySelector(".searchBtn")
+searchButton.addEventListener('click',getMusicAPI)
+
+function getMusicAPI(){
+>>>>>>> 2d13dcc62af336bec7def06fef01b49f778ac7c5
     var requestUrl = 'https://cors-anywhere.herokuapp.com/https://api.musixmatch.com/ws/1.1/track.lyrics.get?track_id=15953433&apikey=e075b7af2b41f9ecf20c40cb1fc42a40';
 
     fetch(requestUrl, {headers:{"Access-Control-Allow-Origin":"*"}})
@@ -10,6 +17,7 @@ searchButton.addEventListener("click", encodeURIComponent(query));
         })
         .then(function(data){
             console.log(data)
+<<<<<<< HEAD
     
 
         })
@@ -59,12 +67,17 @@ let encodedQuery = encodeURIComponent(query);
     .catch((err) => {
       console.error(err);
     });
+=======
+
+        })
+>>>>>>> 2d13dcc62af336bec7def06fef01b49f778ac7c5
 }
 
 const checkbox = document.querySelector(".form-check-input");
 const closeBtn1 = document.querySelector(".close");
 const closeBtn2 = document.querySelector(".btn-secondary");
 
+<<<<<<< HEAD
 checkbox.addEventListener("change", function () {
   $("#advancedSearch").modal("show");
 });
@@ -76,3 +89,16 @@ closeBtn1.addEventListener("click", function () {
 closeBtn2.addEventListener("click", function () {
   $("#advancedSearch").modal("hide");
 });
+=======
+checkbox.addEventListener("change", function() {
+    $('#advancedSearch').modal('show');
+});
+
+closeBtn1.addEventListener("click", function() {
+    $('#advancedSearch').modal('hide');
+});
+
+closeBtn2.addEventListener("click", function() {
+    $('#advancedSearch').modal('hide');
+});
+>>>>>>> 2d13dcc62af336bec7def06fef01b49f778ac7c5
