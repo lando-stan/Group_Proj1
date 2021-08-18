@@ -16,7 +16,7 @@ searchButton.addEventListener("click", encodeURIComponent(query));
 }*/
 
 //new lyric fetch data
-let query = "Kendrick Lamar";
+let query = "Gotye";
 
 encodeURIComponent(query);
 
