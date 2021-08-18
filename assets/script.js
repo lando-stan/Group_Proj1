@@ -29,3 +29,4 @@ closeBtn1.addEventListener("click", function() {
 closeBtn2.addEventListener("click", function() {
     $('#advancedSearch').modal('hide');
 });
+
