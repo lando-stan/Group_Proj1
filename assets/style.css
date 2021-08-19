@@ -59,6 +59,9 @@ body {
 .mediaWindow {
   margin: 20px;
   padding: 5px;
+  height: 400px;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 .refreshVideoBtn {

@@ -1,14 +1,17 @@
 var searchButton = document.querySelector(".searchBtn");
 let queryEL = document.querySelector(".searchbar");
+let trackEmbed = document.querySelector(".rg_embed_link");
 
 //new lyric fetch data
 
 searchButton.addEventListener("click", function () {
-  let query = "Gotye";
+  let query = queryEL.value;
   let encodedQuery = encodeURIComponent(query);
   encodeURIComponent(query);
 
-  document.querySelector(".card-body").setAttribute("visibility: visible");
+  document
+    .querySelector(".card-body")
+    .setAttribute("style", "visibility: visible");
 
   fetch(`https://genius.p.rapidapi.com/search?q=${encodedQuery}`, {
     method: "GET",
