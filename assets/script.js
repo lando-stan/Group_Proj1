@@ -1,26 +1,25 @@
-var searchButton = document.querySelector(".searchBtn")
-let queryEL = document.querySelector(".searchbar")
+var searchButton = document.querySelector(".searchBtn");
+let queryEL = document.querySelector(".searchbar");
 
+//new lyric fetch data
 
+searchButton.addEventListener("click", function () {
+  let query = "Gotye";
+  let encodedQuery = encodeURIComponent(query);
+  encodeURIComponent(query);
 
-searchButton.addEventListener('click',function(){
-//    query will be user's input
-    let query = queryEL.value;
-    let encodedQuery = encodeURIComponent(query);
-    encodeURIComponent(query);
+  document.querySelector(".card-body").setAttribute("visibility: visible");
 
-    fetch(`https://genius.p.rapidapi.com/search?q=${encodedQuery}`, {
+  fetch(`https://genius.p.rapidapi.com/search?q=${encodedQuery}`, {
     method: "GET",
     headers: {
       "x-rapidapi-key": "b657a2984emshe35c30735463f15p1b37d6jsn49a10961e667", // your key here
       "x-rapidapi-host": "genius.p.rapidapi.com",
     },
-    })
-
+  })
     .then((response) => {
       return response.json();
     })
-
     .then((data) => {
       console.log(data);
       let trackID = data.response.hits[0].result.id;
@@ -31,7 +30,7 @@ searchButton.addEventListener('click',function(){
           "x-rapidapi-key":
             "b657a2984emshe35c30735463f15p1b37d6jsn49a10961e667",
           "x-rapidapi-host": "genius.p.rapidapi.com",
-        }
+        },
       })
         .then((response) => {
           return response.json();
@@ -45,12 +44,10 @@ searchButton.addEventListener('click',function(){
           console.error(err);
         });
     })
-
     .catch((err) => {
       console.error(err);
     });
 });
-
 
 const checkbox = document.querySelector(".form-check-input");
 const closeBtn1 = document.querySelector(".close");
