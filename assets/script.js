@@ -1,45 +1,26 @@
-<<<<<<< HEAD
-var searchButton = document.querySelector(".searchBtn");
-searchButton.addEventListener("click", encodeURIComponent(query));
-
-/*function getMusicAPI(){
-=======
 var searchButton = document.querySelector(".searchBtn")
-searchButton.addEventListener('click',getMusicAPI)
+let queryEL = document.querySelector(".searchbar")
 
-function getMusicAPI(){
->>>>>>> 2d13dcc62af336bec7def06fef01b49f778ac7c5
-    var requestUrl = 'https://cors-anywhere.herokuapp.com/https://api.musixmatch.com/ws/1.1/track.lyrics.get?track_id=15953433&apikey=e075b7af2b41f9ecf20c40cb1fc42a40';
 
-    fetch(requestUrl, {headers:{"Access-Control-Allow-Origin":"*"}})
-        .then(function (response){
-            return response.text();
-        })
-        .then(function(data){
-            console.log(data)
-<<<<<<< HEAD
-    
 
-        })
-}*/
+searchButton.addEventListener('click',function(){
+//    query will be user's input
+    let query = queryEL.value;
+    let encodedQuery = encodeURIComponent(query);
+    encodeURIComponent(query);
 
-//new lyric fetch data
-let query = "Gotye";
-
-encodeURIComponent(query);
-
-let encodedQuery = encodeURIComponent(query);
-{
-  fetch(`https://genius.p.rapidapi.com/search?q=${encodedQuery}`, {
+    fetch(`https://genius.p.rapidapi.com/search?q=${encodedQuery}`, {
     method: "GET",
     headers: {
       "x-rapidapi-key": "b657a2984emshe35c30735463f15p1b37d6jsn49a10961e667", // your key here
       "x-rapidapi-host": "genius.p.rapidapi.com",
     },
-  })
+    })
+
     .then((response) => {
       return response.json();
     })
+
     .then((data) => {
       console.log(data);
       let trackID = data.response.hits[0].result.id;
@@ -50,7 +31,7 @@ let encodedQuery = encodeURIComponent(query);
           "x-rapidapi-key":
             "b657a2984emshe35c30735463f15p1b37d6jsn49a10961e667",
           "x-rapidapi-host": "genius.p.rapidapi.com",
-        },
+        }
       })
         .then((response) => {
           return response.json();
@@ -64,20 +45,17 @@ let encodedQuery = encodeURIComponent(query);
           console.error(err);
         });
     })
+
     .catch((err) => {
       console.error(err);
     });
-=======
+});
 
-        })
->>>>>>> 2d13dcc62af336bec7def06fef01b49f778ac7c5
-}
 
 const checkbox = document.querySelector(".form-check-input");
 const closeBtn1 = document.querySelector(".close");
 const closeBtn2 = document.querySelector(".btn-secondary");
 
-<<<<<<< HEAD
 checkbox.addEventListener("change", function () {
   $("#advancedSearch").modal("show");
 });
@@ -89,16 +67,3 @@ closeBtn1.addEventListener("click", function () {
 closeBtn2.addEventListener("click", function () {
   $("#advancedSearch").modal("hide");
 });
-=======
-checkbox.addEventListener("change", function() {
-    $('#advancedSearch').modal('show');
-});
-
-closeBtn1.addEventListener("click", function() {
-    $('#advancedSearch').modal('hide');
-});
-
-closeBtn2.addEventListener("click", function() {
-    $('#advancedSearch').modal('hide');
-});
->>>>>>> 2d13dcc62af336bec7def06fef01b49f778ac7c5
