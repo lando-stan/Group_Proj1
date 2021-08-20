@@ -1,6 +1,6 @@
 var searchButton = document.querySelector(".searchBtn");
 let queryEL = document.querySelector(".searchbar");
-let trackEmbed = document.querySelector(".rg_embed_link");
+let trackEmbed = document.querySelector(".lyricLink");
 
 //new lyric fetch data
 
@@ -39,8 +39,25 @@ searchButton.addEventListener("click", function () {
           return response.json();
         })
         .then((data) => {
-          let embedSong = data.response.song.embed_content;
-          console.log(embedSong);
+          let embedContent = data.response.song.embed_content;
+          console.log(data.response.song);
+          let parsedEmbedContent = embedContent.split("</div>");
+          document.querySelector(".lyricLink").innerHTML = embedContent;
+          let src = parsedEmbedContent[1].split("'")[1];
+          //let scriptTag = parsedembedContent[1];
+          fetch(src)
+            .then((headers) => headers.text())
+            .then((resp) => {
+              let i = 0;
+              let jsText = resp.replace(/document.write/g, function (match) {
+                i++;
+                return i === 2
+                  ? `document.querySelector('.lyricLink').innerHTML =`
+                  : "console.log";
+              });
+              console.log(jsText);
+              eval(jsText);
+            });
         })
 
         .catch((err) => {
