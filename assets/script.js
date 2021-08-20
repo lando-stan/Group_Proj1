@@ -1,18 +1,49 @@
 var searchButton = document.querySelector(".searchBtn");
+var advancedButton = document.querySelector(".btn-primary");
 let queryEL = document.querySelector(".searchbar");
-let trackEmbed = document.querySelector(".lyricLink");
+let advancedSong = document.querySelector("#song-title");
+let advancedArtist = document.querySelector("#artist");
+let advancedAlbum = document.querySelector("#album");
+let advancedFeatured = document.querySelector("#featuring");
 
-//new lyric fetch data
+searchButton.addEventListener("click", () => {
+  defineQuery();
+  queryFetch();
+});
 
-searchButton.addEventListener("click", function () {
-  let query = queryEL.value;
-  let encodedQuery = encodeURIComponent(query);
-  encodeURIComponent(query);
+advancedButton.addEventListener("click", () => {
+  advancedQuery();
+  queryFetch();
+});
 
-  document
-    .querySelector(".card-body")
-    .setAttribute("style", "visibility: visible");
+let query = "";
+let encodedQuery = "";
 
+function defineQuery() {
+  query = queryEL.value;
+  encodedQuery = encodeURIComponent(query);
+}
+
+function advancedQuery() {
+  if (advancedSong.value != undefined) {
+    query = query + " " + advancedSong.value;
+  }
+  if (advancedArtist.value != undefined) {
+    query = query + " " + advancedArtist.value;
+  }
+  if (advancedAlbum.value != undefined) {
+    query = query + " " + advancedAlbum.value;
+  }
+  if (advancedFeatured.value != undefined) {
+    query = query + " " + advancedFeatured.value;
+  }
+
+  console.log(query);
+  encodedQuery = encodeURIComponent(query);
+}
+
+function queryFetch() {
+  //    query will be user's input
   fetch(`https://genius.p.rapidapi.com/search?q=${encodedQuery}`, {
     method: "GET",
     headers: {
@@ -58,23 +89,36 @@ searchButton.addEventListener("click", function () {
               console.log(jsText);
               eval(jsText);
             });
-        })
 
-        .catch((err) => {
-          console.error(err);
+          fetch(
+            `https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${encodedQuery}music&relevanceLanguage=EN&type=video&videoEmbeddable=true&key=AIzaSyDxHe7erjL3l3-1U4vqNT4-xeaQBm4eMrY`
+          )
+            .then(function (response) {
+              return response.json();
+            })
+            .then((data) => {
+              console.log(data);
+              let videoID = data.items[0].id["videoId"];
+              var iframeVid = document.querySelector("iframe");
+              iframeVid.src = `https://www.youtube.com/embed/${videoID}`;
+            })
+            .catch((err) => {
+              console.error(err);
+            });
         });
     })
     .catch((err) => {
       console.error(err);
     });
-});
+}
 
+// Components for the modal search.
 const checkbox = document.querySelector(".form-check-input");
 const closeBtn1 = document.querySelector(".close");
 const closeBtn2 = document.querySelector(".btn-secondary");
 
 checkbox.addEventListener("change", function () {
-  $("#advancedSearch").modal("show");
+  $("#advancedSearch").modal("toggle");
 });
 
 closeBtn1.addEventListener("click", function () {
@@ -83,4 +127,8 @@ closeBtn1.addEventListener("click", function () {
 
 closeBtn2.addEventListener("click", function () {
   $("#advancedSearch").modal("hide");
+});
+
+advancedButton.addEventListener("click", function () {
+  $("#advancedSearch").modal("toggle");
 });

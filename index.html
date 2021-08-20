@@ -54,18 +54,19 @@
                             </div>
                           </form>
                             <div class="form-group">
+                              <label for="featuring" class="col-form-label">Featuring:</label>
+                              <input type="text" class="form-control" id="featuring">
+                            </div>
+                          </form>
+                            <div class="form-group">
                               <label for="album" class="col-form-label">Album:</label>
                               <input type="text" class="form-control" id="album">
-                            </div>
-                            <div class="form-group">
-                              <label for="genre" class="col-form-label">Genre:</label>
-                              <input type="text" class="form-control" id="genre">
                             </div>
                           </form>
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                          <button type="button" class="btn btn-primary">Send message</button>
+                          <button type="button" class="btn btn-primary">Search!</button>
                         </div>
                       </div>
                     </div>
@@ -77,7 +78,7 @@
     <main class="  row mainWindow container ">
         <section class= "col-7 container mediaWindow" >
             <div class="row" id="iFrame">
-                <iframe title="Music Videos from YouTube" width="560" height="315" src="https://www.youtube.com/embed/8UVNT4wvIGY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe title="Music Videos from YouTube" width="560" height="315" src="" enablejsapi="true" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
             <button type="button" class="btn btn-secondary refreshVideoBtn">
                 Refresh kTV
@@ -89,10 +90,8 @@
                 <div class="card-header" id="songTitle">
                     Song Title
                 </div>
-                <div class="card-body" style= "visibility: hidden" >
-                    <p class="card-text" id="lyricsText">Lyrics and additional content.</p>
+                <div class="card-body"  >
                     <div class = "lyricLink">
-                      
                 </div>
             </div>
         </section>
